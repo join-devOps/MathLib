@@ -42,8 +42,6 @@ namespace ConsoleApp2
             File.AppendAllText(path, "Average = " + MathCl.Average(nums) + "\n");
             File.AppendAllText(path, "GeomAverage = " + MathCl.GeomAverage(nums));
 
-            Console.WriteLine("ArrSort = " + Arranges.ArrSort(nums, false));
-
             Console.ReadKey();
         }
     }
