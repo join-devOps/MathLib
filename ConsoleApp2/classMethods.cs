@@ -5,28 +5,24 @@ namespace ConsoleApp2
 {
     class classMethods : classFile
     {
-        private static void answerSum(double[] nums)
+        private static double answerSum(double[] nums)
         {
-            Console.WriteLine("Sum  => " + MathCl.Sum(nums));
-            Console.WriteLine();
+            return MathCl.Sum(nums);
         }
 
-        private static void answerMul(double[] nums)
+        private static double answerMul(double[] nums)
         {
-            Console.WriteLine("Mul => " + MathCl.Mul(nums));
-            Console.WriteLine();
+            return MathCl.Mul(nums);
         }
 
-        private static void answerAverage(double[] nums)
+        private static double answerAverage(double[] nums)
         {
-            Console.WriteLine("Average => " + MathCl.Average(nums));
-            Console.WriteLine();
+            return MathCl.Average(nums);
         }
 
-        private static void answerGeomAverage(double[] nums)
+        private static double answerGeomAverage(double[] nums)
         {
-            Console.WriteLine("GeomAverage => " + MathCl.GeomAverage(nums));
-            Console.WriteLine();
+            return MathCl.GeomAverage(nums);
         }
 
         public static void lessons_1(double[,] numbers, byte[] kol, byte variantMethod)
@@ -40,10 +36,10 @@ namespace ConsoleApp2
                     {
                         nums[i] = numbers[i, kolTest];
                         Console.Write(nums[i] + " ");
-                        //pasteFile("\t" + numbers[kolTest, i]);
                     }
                     Console.WriteLine();
-                    answerSum(nums);
+                    Console.WriteLine("Sum => " + answerSum(nums));
+                    pasteFiles(nums, answerSum(nums), 1, kol);
                 }
                 Console.WriteLine();
             }
@@ -55,10 +51,10 @@ namespace ConsoleApp2
                     {
                         nums[i] = numbers[i, kolTest];
                         Console.Write(nums[i] + " ");
-                        //pasteFile("\t" + numbers[kolTest, i]);
                     }
                     Console.WriteLine();
-                    answerMul(nums);
+                    Console.WriteLine("Mul => " + answerMul(nums));
+                    pasteFiles(nums, answerMul(nums), 2, kol);
                 }
                 Console.WriteLine();
             }
@@ -70,10 +66,10 @@ namespace ConsoleApp2
                     {
                         nums[i] = numbers[i, kolTest];
                         Console.Write(nums[i] + " ");
-                        //pasteFile("\t" + numbers[kolTest, i]);
                     }
                     Console.WriteLine();
-                    answerAverage(nums);
+                    Console.WriteLine("Average => " + answerAverage(nums));
+                    pasteFiles(nums, answerAverage(nums), 3, kol);
                 }
                 Console.WriteLine();
             }
@@ -88,7 +84,8 @@ namespace ConsoleApp2
                         //pasteFile("\t" + numbers[kolTest, i]);
                     }
                     Console.WriteLine();
-                    answerGeomAverage(nums);
+                    Console.WriteLine("GeomAverage => " + answerGeomAverage(nums));
+                    pasteFiles(nums, answerGeomAverage(nums), 4, kol);
                 }
                 Console.WriteLine();
             }
