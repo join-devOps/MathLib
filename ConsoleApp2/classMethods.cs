@@ -39,7 +39,7 @@ namespace ConsoleApp2
                     }
                     Console.WriteLine();
                     Console.WriteLine("Sum => " + answerSum(nums));
-                    pasteFiles(nums, answerSum(nums), 1, kol);
+                    pasteFiles_sumMul_averageGeomAverage(nums, answerSum(nums), 1, kol);
                 }
                 Console.WriteLine();
             }
@@ -54,7 +54,7 @@ namespace ConsoleApp2
                     }
                     Console.WriteLine();
                     Console.WriteLine("Mul => " + answerMul(nums));
-                    pasteFiles(nums, answerMul(nums), 2, kol);
+                    pasteFiles_sumMul_averageGeomAverage(nums, answerMul(nums), 2, kol);
                 }
                 Console.WriteLine();
             }
@@ -69,7 +69,7 @@ namespace ConsoleApp2
                     }
                     Console.WriteLine();
                     Console.WriteLine("Average => " + answerAverage(nums));
-                    pasteFiles(nums, answerAverage(nums), 3, kol);
+                    pasteFiles_sumMul_averageGeomAverage(nums, answerAverage(nums), 3, kol);
                 }
                 Console.WriteLine();
             }
@@ -81,126 +81,236 @@ namespace ConsoleApp2
                     {
                         nums[i] = numbers[i, kolTest];
                         Console.Write(nums[i] + " ");
-                        //pasteFile("\t" + numbers[kolTest, i]);
                     }
                     Console.WriteLine();
                     Console.WriteLine("GeomAverage => " + answerGeomAverage(nums));
-                    pasteFiles(nums, answerGeomAverage(nums), 4, kol);
+                    pasteFiles_sumMul_averageGeomAverage(nums, answerGeomAverage(nums), 4, kol);
                 }
                 Console.WriteLine();
             }
-
         }
 
-        public static void lessons_2(double[] numbers, double[,] numsMas, double[,] numMas_2, bool dir, byte kol)
+        private static void answer_arrSort(double[] nums, bool dir, byte[] kol)
         {
-            Arranges.ArrSort(numbers, dir);
+            for (byte i = 0; i < nums.Length; i++)
             {
-                Console.Write("ArrSort = ");
-                //pasteFile("ArrSort = ", 0, 1);
-                for (byte i = 0; i < kol; i++)
+                classPath.num[i] = nums[i];
+            }
+            Arranges.ArrSort(nums, dir);
+            {
+                for (byte i = 0; i < kol.Length; i++)
                 {
-                    Console.Write(" " + numbers[i]);
-                    //pasteFile("\t", numbers[i], 2);
+                    Console.Write("\t" + nums[i]);
+                }
+                pasteFile_arrSort_arrFind(classPath.num, nums, kol, 1);
+            }
+            Console.WriteLine();
+        }
+
+        private static void answer_arrFind(double[] nums, bool dir, byte[] kol)
+        {
+            for (byte i = 0; i < nums.Length; i++)
+            {
+                classPath.num[i] = nums[i];
+            }
+            Arranges.ArrFind(nums, dir);
+            {
+                for (byte i = 0; i < kol.Length; i++)
+                {
+                    Console.Write("\t" + nums[i]);
+                }
+                pasteFile_arrSort_arrFind(classPath.num, nums, kol, 2);
+            }
+            Console.WriteLine();
+        }
+
+        private static double answer_arrDet(double[,] nums)
+        {
+            return Arranges.ArrDet(nums);
+        }
+
+        private static void answer_matrixSum(double[,] nums1, double[,] nums2, byte[] kolStolbik, byte[] kolStroka)
+        {
+            for (byte i = 0; i < kolStolbik.Length; i++)
+            {
+                for (byte j = 0; j < kolStroka.Length; j++)
+                {
+                    classPath.num1[j, i] = nums1[j, i];
                 }
             }
-            Console.WriteLine("");
-            //pasteFile("", 0, 3);
-
-            Arranges.ArrFind(numbers, dir);
-            Console.Write("ArrFind = ");
-            //pasteFile("ArrFind = ", 0, 1);
-            //pasteFile("", 0, 3);
-
-            for (int i = 0; i < kol; i++)
+            for (byte i = 0; i < kolStolbik.Length; i++)
             {
-                Console.Write(" " + numbers[i]);
-                //pasteFile("\t", numbers[i], 2);
-            }
-            Console.WriteLine("");
-            //pasteFile("", 0, 3);
-
-            for (byte i = 0; i < kol; i++)
-            {
-                for (byte j = 0; j < kol; j++)
+                for (byte j = 0; j < kolStroka.Length; j++)
                 {
-                    Console.Write(numsMas[i, j] + "\t");
-                 //   pasteFile("\t", numsMas[i, j], 2);
+                    classPath.num2[j, i] = nums2[j, i];
                 }
-                Console.WriteLine("");
-              //  pasteFile("", 0, 3);
             }
-            Console.WriteLine("");
-            //pasteFile("", 0, 3);
 
-            for (byte i = 0; i < kol; i++)
+            Arranges.MatrixSum(nums1, nums2);
             {
-                for (byte j = 0; j < kol; j++)
+                for (byte i = 0; i < kolStolbik.Length; i++)
                 {
-                    Console.Write(numMas_2[i, j] + "\t");
-                   // pasteFile("\t", numMas_2[i, j], 2);
-                }
-                Console.WriteLine("");
-              //  pasteFile("", 0, 3);
-            }
-            Console.WriteLine("");
-            //pasteFile("", 0, 3);
-
-            for (byte i = 0; i < kol; i++)
-            {
-                for (byte j = 0; j < kol; j++)
-                {
-                    Console.Write(numsMas[i, j] + "\t");
-                   // pasteFile("\t", numsMas[i, j], 2);
-                }
-                Console.WriteLine("");
-               // pasteFile("", 0, 3);
-            }
-            Console.WriteLine("");
-           // pasteFile("", 0, 3);
-
-            Console.WriteLine("ArrDet = " + Arranges.ArrDet(numsMas));
-          //  pasteFile("ArrDet = ", Arranges.ArrDet(numsMas), 1);
-           // pasteFile("", 0, 3);
-
-            Arranges.MatrixSum(numsMas, numMas_2);
-            {
-                Console.WriteLine("MatrixSum: ");
-             //   pasteFile("MatrixSum: ", 0, 1);
-              //  pasteFile("", 0, 3);
-
-                for (byte i = 0; i < kol; i++)
-                {
-                    for (byte j = 0; j < kol; j++)
+                    for (byte j = 0; j < kolStroka.Length; j++)
                     {
-                        Console.Write(numsMas[i, j] + "\t");
-                     //   pasteFile("\t", numsMas[i, j], 2);
+                        Console.Write(nums1[j, i] + "\t");
                     }
                     Console.WriteLine("");
-                  //  pasteFile("", 0, 3);
                 }
+                pasteFile_matrixSum_matrixMul(classPath.num1, classPath.num2, nums1, kolStolbik, kolStroka, 1);
                 Console.WriteLine("");
-              //  pasteFile("", 0, 3);
+            }
+        }
+
+        private static void answer_matrixMul(double[,] nums1, double[,] nums2, byte[] kolStolbik, byte[] kolStroka)
+        {
+            for (byte i = 0; i < kolStolbik.Length; i++)
+            {
+                for (byte j = 0; j < kolStroka.Length; j++)
+                {
+                    classPath.num1[j, i] = nums1[j, i];
+                }
+            }
+            for (byte i = 0; i < kolStolbik.Length; i++)
+            {
+                for (byte j = 0; j < kolStroka.Length; j++)
+                {
+                    classPath.num2[j, i] = nums2[j, i];
+                }
             }
 
-            Arranges.MatrixMul(numsMas, numMas_2);
+            Arranges.MatrixMul(nums1, nums2);
             {
-                Console.WriteLine("MatrixMul: ");
-              //  pasteFile("MatrixMul: ", 0, 1);
-              //  pasteFile("", 0, 3);
-
-                for (byte i = 0; i < kol; i++)
+                for (byte i = 0; i < kolStolbik.Length; i++)
                 {
-                    for (byte j = 0; j < kol; j++)
+                    for (byte j = 0; j < kolStroka.Length; j++)
                     {
-                        Console.Write(numMas_2[i, j] + "\t");
-                    //    pasteFile("\t", numsMas[i, j], 2);
+                        Console.Write(nums1[j, i] + "\t");
                     }
                     Console.WriteLine("");
-                  //  pasteFile("", 0, 3);
                 }
+                pasteFile_matrixSum_matrixMul(classPath.num1, classPath.num2, nums1, kolStolbik, kolStroka, 2);
                 Console.WriteLine("");
-              //  pasteFile("", 0, 3);
+            }
+        }
+
+        public static void arrSort_arrFind(double[,] nums, byte[] kol, bool dir, byte variantMethods)
+        {
+            double[] numbers = new double[10];
+
+            if (variantMethods == 1)
+            {
+                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                {
+                    for (byte i = 0; i < kol.Length; i++)
+                    {
+                        numbers[i] = nums[i, kolTest];
+                        Console.Write(numbers[i] + " ");
+                    }
+                    Console.WriteLine("\nArrSort:");
+                    answer_arrSort(numbers, dir, kol);
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
+            if (variantMethods == 2)
+            {
+                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                {
+                    for (byte i = 0; i < kol.Length; i++)
+                    {
+                        numbers[i] = nums[i, kolTest];
+                        Console.Write(numbers[i] + " ");
+                    }
+                    Console.WriteLine("\nArrFind => ");
+                    answer_arrFind(numbers, dir, kol);
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public static void arrDet(double[,,] nums, byte[] kolStolbik, byte[] kolStroka)
+        {
+            double[,] numbersMatrix = new double[10, 10];
+
+            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            {
+                for (byte i = 0; i < kolStolbik.Length; i++)
+                {
+                    for (byte j = 0; j < kolStroka.Length; j++)
+                    {
+                        numbersMatrix[j, i] = nums[j, i, kolTest];
+                        Console.Write(numbersMatrix[j, i] + "\t");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+                Console.WriteLine("\nArrDet => " + answer_arrDet(numbersMatrix));
+                pasteFile_arrDet(numbersMatrix, answer_arrDet(numbersMatrix), kolStolbik, kolStroka);
+            }
+        }
+        public static void matrixSum_matrixMul(double[,,] nums1, double[,,] nums2, byte[] kolStolbik, byte[] kolStroka, byte variantMethods)
+        {
+            double[,] numbersMatrix_1 = new double[10, 10];
+            double[,] numbersMatrix_2 = new double[10, 10];
+
+            if (variantMethods == 1)
+            {
+                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                {
+                    for (byte i = 0; i < kolStolbik.Length; i++)
+                    {
+                        for (byte j = 0; j < kolStroka.Length; j++)
+                        {
+                            numbersMatrix_1[j, i] = nums1[j, i, kolTest];
+                            Console.Write(numbersMatrix_1[j, i] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine();
+
+                    for (byte i = 0; i < kolStolbik.Length; i++)
+                    {
+                        for (byte j = 0; j < kolStroka.Length; j++)
+                        {
+                            numbersMatrix_2[j, i] = nums2[j, i, kolTest];
+                            Console.Write(numbersMatrix_2[j, i] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("MatrixSum:");
+                    answer_matrixSum(numbersMatrix_1, numbersMatrix_2, kolStolbik, kolStroka);
+                }
+            }
+            if (variantMethods == 2)
+            {
+                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                {
+                    for (byte i = 0; i < kolStolbik.Length; i++)
+                    {
+                        for (byte j = 0; j < kolStroka.Length; j++)
+                        {
+                            numbersMatrix_1[j, i] = nums1[j, i, kolTest];
+                            Console.Write(numbersMatrix_1[j, i] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine();
+
+                    for (byte i = 0; i < kolStolbik.Length; i++)
+                    {
+                        for (byte j = 0; j < kolStroka.Length; j++)
+                        {
+                            numbersMatrix_2[j, i] = nums2[j, i, kolTest];
+                            Console.Write(numbersMatrix_2[j, i] + "\t");
+                        }
+                        Console.WriteLine();
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("MatrixMul:");
+                    answer_matrixMul(numbersMatrix_1, numbersMatrix_2, kolStolbik, kolStroka);
+                }
             }
         }
     }
