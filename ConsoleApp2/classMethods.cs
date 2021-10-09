@@ -27,10 +27,10 @@ namespace ConsoleApp2
 
         public static void lessons_1(double[,] numbers, byte[] kol, byte variantMethod)
         {
-            double[] nums = new double[7];
+            double[] nums = new double[maxValue];
             if (variantMethod == 1)
             {
-                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                for (byte kolTest = 0; kolTest < maxValue; kolTest++)
                 {
                     for (byte i = 0; i < kol.Length; i++)
                     {
@@ -45,7 +45,7 @@ namespace ConsoleApp2
             }
             if (variantMethod == 2)
             {
-                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                for (byte kolTest = 0; kolTest < maxValue; kolTest++)
                 {
                     for (byte i = 0; i < kol.Length; i++)
                     {
@@ -60,7 +60,7 @@ namespace ConsoleApp2
             }
             if (variantMethod == 3)
             {
-                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                for (byte kolTest = 0; kolTest < maxValue; kolTest++)
                 {
                     for (byte i = 0; i < kol.Length; i++)
                     {
@@ -75,7 +75,7 @@ namespace ConsoleApp2
             }
             if (variantMethod == 4)
             {
-                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                for (byte kolTest = 0; kolTest < maxValue; kolTest++)
                 {
                     for (byte i = 0; i < kol.Length; i++)
                     {
@@ -92,9 +92,10 @@ namespace ConsoleApp2
 
         private static void answer_arrSort(double[] nums, bool dir, byte[] kol)
         {
+            double[] num = new double[maxValue];
             for (byte i = 0; i < nums.Length; i++)
             {
-                classPath.num[i] = nums[i];
+                num[i] = nums[i];
             }
             Arranges.ArrSort(nums, dir);
             {
@@ -102,16 +103,17 @@ namespace ConsoleApp2
                 {
                     Console.Write("\t" + nums[i]);
                 }
-                pasteFile_arrSort_arrFind(classPath.num, nums, kol, 1);
+                pasteFile_arrSort_arrFind(num, nums, kol, 1);
             }
             Console.WriteLine();
         }
 
         private static void answer_arrFind(double[] nums, bool dir, byte[] kol)
         {
+            double[] num = new double[maxValue];
             for (byte i = 0; i < nums.Length; i++)
             {
-                classPath.num[i] = nums[i];
+                num[i] = nums[i];
             }
             Arranges.ArrFind(nums, dir);
             {
@@ -119,7 +121,7 @@ namespace ConsoleApp2
                 {
                     Console.Write("\t" + nums[i]);
                 }
-                pasteFile_arrSort_arrFind(classPath.num, nums, kol, 2);
+                pasteFile_arrSort_arrFind(num, nums, kol, 2);
             }
             Console.WriteLine();
         }
@@ -131,18 +133,21 @@ namespace ConsoleApp2
 
         private static void answer_matrixSum(double[,] nums1, double[,] nums2, byte[] kolStolbik, byte[] kolStroka)
         {
+            double[,] num1 = new double[maxValue, maxValue];
+            double[,] num2 = new double[maxValue, maxValue];
+
             for (byte i = 0; i < kolStolbik.Length; i++)
             {
                 for (byte j = 0; j < kolStroka.Length; j++)
                 {
-                    classPath.num1[j, i] = nums1[j, i];
+                    num1[j, i] = nums1[j, i];
                 }
             }
             for (byte i = 0; i < kolStolbik.Length; i++)
             {
                 for (byte j = 0; j < kolStroka.Length; j++)
                 {
-                    classPath.num2[j, i] = nums2[j, i];
+                    num2[j, i] = nums2[j, i];
                 }
             }
 
@@ -156,25 +161,28 @@ namespace ConsoleApp2
                     }
                     Console.WriteLine("");
                 }
-                pasteFile_matrixSum_matrixMul(classPath.num1, classPath.num2, nums1, kolStolbik, kolStroka, 1);
+                pasteFile_matrixSum_matrixMul(num1, num2, nums1, kolStolbik, kolStroka, 1);
                 Console.WriteLine("");
             }
         }
 
         private static void answer_matrixMul(double[,] nums1, double[,] nums2, byte[] kolStolbik, byte[] kolStroka)
         {
+            double[,] num1 = new double[maxValue, maxValue];
+            double[,] num2 = new double[maxValue, maxValue];
+
             for (byte i = 0; i < kolStolbik.Length; i++)
             {
                 for (byte j = 0; j < kolStroka.Length; j++)
                 {
-                    classPath.num1[j, i] = nums1[j, i];
+                    num1[j, i] = nums1[j, i];
                 }
             }
             for (byte i = 0; i < kolStolbik.Length; i++)
             {
                 for (byte j = 0; j < kolStroka.Length; j++)
                 {
-                    classPath.num2[j, i] = nums2[j, i];
+                    num2[j, i] = nums2[j, i];
                 }
             }
 
@@ -188,18 +196,18 @@ namespace ConsoleApp2
                     }
                     Console.WriteLine("");
                 }
-                pasteFile_matrixSum_matrixMul(classPath.num1, classPath.num2, nums1, kolStolbik, kolStroka, 2);
+                pasteFile_matrixSum_matrixMul(num1, num2, nums1, kolStolbik, kolStroka, 2);
                 Console.WriteLine("");
             }
         }
 
         public static void arrSort_arrFind(double[,] nums, byte[] kol, bool dir, byte variantMethods)
         {
-            double[] numbers = new double[10];
+            double[] numbers = new double[maxValue];
 
             if (variantMethods == 1)
             {
-                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                for (byte kolTest = 0; kolTest < maxValue; kolTest++)
                 {
                     for (byte i = 0; i < kol.Length; i++)
                     {
@@ -214,7 +222,7 @@ namespace ConsoleApp2
             }
             if (variantMethods == 2)
             {
-                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                for (byte kolTest = 0; kolTest < maxValue; kolTest++)
                 {
                     for (byte i = 0; i < kol.Length; i++)
                     {
@@ -231,9 +239,9 @@ namespace ConsoleApp2
 
         public static void arrDet(double[,,] nums, byte[] kolStolbik, byte[] kolStroka)
         {
-            double[,] numbersMatrix = new double[10, 10];
+            double[,] numbersMatrix = new double[maxValue, maxValue];
 
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < maxValue; kolTest++)
             {
                 for (byte i = 0; i < kolStolbik.Length; i++)
                 {
@@ -251,12 +259,12 @@ namespace ConsoleApp2
         }
         public static void matrixSum_matrixMul(double[,,] nums1, double[,,] nums2, byte[] kolStolbik, byte[] kolStroka, byte variantMethods)
         {
-            double[,] numbersMatrix_1 = new double[10, 10];
-            double[,] numbersMatrix_2 = new double[10, 10];
+            double[,] numbersMatrix_1 = new double[maxValue, maxValue];
+            double[,] numbersMatrix_2 = new double[maxValue, maxValue];
 
             if (variantMethods == 1)
             {
-                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                for (byte kolTest = 0; kolTest < maxValue; kolTest++)
                 {
                     for (byte i = 0; i < kolStolbik.Length; i++)
                     {
@@ -285,7 +293,7 @@ namespace ConsoleApp2
             }
             if (variantMethods == 2)
             {
-                for (byte kolTest = 0; kolTest < 6; kolTest++)
+                for (byte kolTest = 0; kolTest < maxValue; kolTest++)
                 {
                     for (byte i = 0; i < kolStolbik.Length; i++)
                     {

@@ -18,7 +18,7 @@ namespace ConsoleApp2
                 {
                     File.AppendAllText(path, nums[i] + "\t");
                 }
-                File.AppendAllText(path, "\nSum => " + answers + "\n");
+                File.AppendAllText(path, "\nСумма => " + answers + "\n");
             }
             if (variantMethod == 2)
             {
@@ -33,7 +33,7 @@ namespace ConsoleApp2
                 {
                     File.AppendAllText(path, nums[i] + "\t");
                 }
-                File.AppendAllText(path, "\nMul => " + answers + "\n");
+                File.AppendAllText(path, "\nУмножение: => " + answers + "\n");
             }
             if (variantMethod == 3)
             {
@@ -82,6 +82,7 @@ namespace ConsoleApp2
                     File.AppendAllText(path, nums[i] + "\t");
                 }
                 File.AppendAllText(path, "\n");
+                File.AppendAllText(path, "Сортировка: " + "\n");
                 for (byte i = 0; i < kol.Length; i++)
                 {
                     File.AppendAllText(path, answers[i] + "\t");
@@ -101,6 +102,7 @@ namespace ConsoleApp2
                     File.AppendAllText(path, nums[i] + "\t");
                 }
                 File.AppendAllText(path, "\n");
+                File.AppendAllText(path, "\nArrFind: \n");
                 for (byte i = 0; i < kol.Length; i++)
                 {
                     File.AppendAllText(path, answers[i] + "\t");
@@ -133,25 +135,30 @@ namespace ConsoleApp2
                 {
                     for (byte j = 0; j < kolStroka.Length; j++)
                     {
-                        File.AppendAllText(path, nums1[j, i] + "\t");
+                        File.AppendAllText(path, nums1[j, i] + " ");
                     }
+                    File.AppendAllText(path, "\n");
                 }
                 File.AppendAllText(path, "\n");
                 for (byte i = 0; i < kolStolbik.Length; i++)
                 {
                     for (byte j = 0; j < kolStroka.Length; j++)
                     {
-                        File.AppendAllText(path, nums2[j, i] + "\t");
+                        File.AppendAllText(path, nums2[j, i] + " ");
                     }
+                    File.AppendAllText(path, "\n");
                 }
                 File.AppendAllText(path, "\n");
+                File.AppendAllText(path, "Сумма: \n");
                 for (byte i = 0; i < kolStolbik.Length; i++)
                 {
                     for (byte j = 0; j < kolStroka.Length; j++)
                     {
-                        File.AppendAllText(path, answer[j, i] + "\t");
+                        File.AppendAllText(path, answer[j, i] + " ");
                     }
+                    File.AppendAllText(path, "\n");
                 }
+                File.AppendAllText(path, "\n");
             }
             if (variantMethod == 2)
             {
@@ -160,16 +167,18 @@ namespace ConsoleApp2
                 {
                     for (byte j = 0; j < kolStroka.Length; j++)
                     {
-                        File.AppendAllText(path, nums1[j, i] + "\t");
+                        File.AppendAllText(path, nums1[j, i] + " ");
                     }
+                    File.AppendAllText(path, "\n");
                 }
                 File.AppendAllText(path, "\n");
                 for (byte i = 0; i < kolStolbik.Length; i++)
                 {
                     for (byte j = 0; j < kolStroka.Length; j++)
                     {
-                        File.AppendAllText(path, nums2[j, i] + "\t");
+                        File.AppendAllText(path, nums2[j, i] + " ");
                     }
+                    File.AppendAllText(path, "\n");
                 }
                 File.AppendAllText(path, "\n");
                 for (byte i = 0; i < kolStolbik.Length; i++)
@@ -178,7 +187,9 @@ namespace ConsoleApp2
                     {
                         File.AppendAllText(path, answer[j, i] + "\t");
                     }
+                    File.AppendAllText(path, "\n");
                 }
+                File.AppendAllText(path, "\n");
             }
         }
     }

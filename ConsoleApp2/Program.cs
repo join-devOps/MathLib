@@ -7,53 +7,53 @@ namespace ConsoleApp2
         static void enter_lesson_1()
         {
             Random rand = new Random();
-            byte[] kol1 = new byte[7];
-            double[,] nums1 = new double[7, 10];
+            byte[] kol = new byte[classPath.maxValue];
+            double[,] nums1 = new double[21, 21];
 
-            for (byte i = 0; i < 6; i++)
+            for (byte i = 0; i < classPath.maxValue; i++)
             {
-                kol1[i] = (byte)rand.Next(2, 6);
+                kol[i] = (byte)rand.Next(2, 6);
             }
 
             // Для метода сложения
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < classPath.maxValue; kolTest++)
             {
-                for (byte i = 0; i < kol1.Length; i++)
+                for (byte i = 0; i < kol.Length; i++)
                 {
                     nums1[i, kolTest] = rand.Next(1, 7);
                 }
             }
-            classMethods.lessons_1(nums1, kol1, 1);
+            classMethods.lessons_1(nums1, kol, 1);
 
             // Для метода умножения
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < classPath.maxValue; kolTest++)
             {
-                for (byte i = 0; i < kol1.Length; i++)
+                for (byte i = 0; i < kol.Length; i++)
                 {
                     nums1[i, kolTest] = rand.Next(1, 7);
                 }
             }
-            classMethods.lessons_1(nums1, kol1, 2);
+            classMethods.lessons_1(nums1, kol, 2);
 
             // Для метода Average
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < classPath.maxValue; kolTest++)
             {
-                for (byte i = 0; i < kol1.Length; i++)
+                for (byte i = 0; i < kol.Length; i++)
                 {
                     nums1[i, kolTest] = rand.Next(1, 7);
                 }
             }
-            classMethods.lessons_1(nums1, kol1, 3);
+            classMethods.lessons_1(nums1, kol, 3);
 
             // Для метода GeomAverage
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < classPath.maxValue; kolTest++)
             {
-                for (byte i = 0; i < kol1.Length; i++)
+                for (byte i = 0; i < kol.Length; i++)
                 {
                     nums1[i, kolTest] = rand.Next(1, 7);
                 }
             }
-            classMethods.lessons_1(nums1, kol1, 4);
+            classMethods.lessons_1(nums1, kol, 4);
         }
 
         static void enter_lesson_2()
@@ -61,17 +61,17 @@ namespace ConsoleApp2
             Random rand = new Random();
 
             bool dir = rand.Next(0, 2) > 0;
-            byte[] kolStroka = new byte[6];
-            byte[] kolStolbik = new byte[6];
-            double[,] nums = new double[10, 10];
+            byte[] kolStroka = new byte[classPath.maxValue];
+            byte[] kolStolbik = new byte[classPath.maxValue];
+            double[,] nums = new double[classPath.maxValue, classPath.maxValue];
 
-            for (byte i = 0; i < 6; i++)
+            for (byte i = 0; i < classPath.maxValue; i++)
             {
                 kolStroka[i] = (byte)rand.Next(2, 7);
                 kolStolbik[i] = (byte)rand.Next(2, 7);
             }
 
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < classPath.maxValue; kolTest++)
             {
                 for (byte i = 0; i < kolStroka.Length; i++)
                 {
@@ -80,7 +80,7 @@ namespace ConsoleApp2
             }
             classMethods.arrSort_arrFind(nums, kolStroka, dir, 1);
 
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < classPath.maxValue; kolTest++)
             {
                 for (byte i = 0; i < kolStroka.Length; i++)
                 {
@@ -89,9 +89,9 @@ namespace ConsoleApp2
             }
             classMethods.arrSort_arrFind(nums, kolStroka, dir, 2);
 
-            double[,,] numsMatrix = new double[10, 10, 10];
+            double[,,] numsMatrix = new double[classPath.maxValue, classPath.maxValue, classPath.maxValue];
 
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < classPath.maxValue; kolTest++)
             {
                 for (byte i = 0; i < kolStolbik.Length; i++)
                 {
@@ -103,10 +103,10 @@ namespace ConsoleApp2
             }
             classMethods.arrDet(numsMatrix, kolStolbik, kolStroka);
 
-            double[,,] numsMatrix_1 = new double[10, 10, 10];
-            double[,,] numsMatrix_2 = new double[10, 10, 10];
+            double[,,] numsMatrix_1 = new double[classPath.maxValue, classPath.maxValue, classPath.maxValue];
+            double[,,] numsMatrix_2 = new double[classPath.maxValue, classPath.maxValue, classPath.maxValue];
 
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < classPath.maxValue; kolTest++)
             {
                 for (byte i = 0; i < kolStolbik.Length; i++)
                 {
@@ -125,7 +125,7 @@ namespace ConsoleApp2
             }
             classMethods.matrixSum_matrixMul(numsMatrix_1, numsMatrix_2, kolStolbik, kolStroka, 1);
 
-            for (byte kolTest = 0; kolTest < 6; kolTest++)
+            for (byte kolTest = 0; kolTest < classPath.maxValue; kolTest++)
             {
                 for (byte i = 0; i < kolStolbik.Length; i++)
                 {
@@ -147,6 +147,7 @@ namespace ConsoleApp2
 
         static void Main(string[] args)
         {
+            enter_lesson_1();
             enter_lesson_2();
 
             Console.ReadKey();

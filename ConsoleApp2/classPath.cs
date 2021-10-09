@@ -9,8 +9,7 @@ namespace ConsoleApp2
         public static string[] pathFiles_arrSort_arrFind_arrDet_matrixSum_matrixMul = { @"\testArrSort.txt", @"\testArrFind.txt", @"\testArrDet.txt", @"\testMatrixSum.txt", @"\testMatrixMul.txt" };
 
         public static string path { get; set; }
-        public static double[] num { get; set; }
-        public static double[,] num1 { get; set; }
-        public static double[,] num2 { get; set; }
+
+        public static byte maxValue { get; } = 20;
     }
 }
